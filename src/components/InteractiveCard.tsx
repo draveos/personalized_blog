@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 interface InteractiveCardProps {
     title: string;
     description: string;
-    video?: string;
+    videoSrc: string;
 }
 
-const InteractiveCard: React.FC<InteractiveCardProps> = ({ title, description, video }) => {
+const InteractiveCard: React.FC<InteractiveCardProps> = ({ title, description, videoSrc }) => {
     const [isHovering, setIsHovering] = useState(false);
     const [progress, setProgress] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
@@ -96,27 +96,27 @@ const InteractiveCard: React.FC<InteractiveCardProps> = ({ title, description, v
                                 fill="transparent"
                                 strokeDasharray={circumference}
                                 animate={{ strokeDashoffset: offset }}
-                                className="text-blue-500"
+                                className="text-primary"
                                 strokeLinecap="round"
                             />
                         </svg>
-                        <span className="absolute text-[10px] text-blue-400 font-mono">
+                        <span className="absolute text-[10px] text-white font-mono">
                             {Math.round(progress)}%
                         </span>
                     </div>
 
                     <div className="relative z-10">
                         <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">{title}</h3>
-                        <div className="w-10 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full mb-6" />
+                        <div className="w-10 h-1 bg-primary rounded-full mb-6" />
                         <p className="text-slate-400 leading-relaxed text-sm line-clamp-4">
                             {description}
                         </p>
                     </div>
 
                     <div className="flex items-center gap-2">
-                        <div className={`w-1.5 h-1.5 rounded-full animate-pulse ${isHovering ? 'bg-blue-500' : 'bg-slate-600'}`} />
+                        <div className={`w-1.5 h-1.5 rounded-full animate-pulse ${isHovering ? 'bg-primary' : 'bg-slate-600'}`} />
                         <span className="text-[10px] font-mono text-slate-500 tracking-widest uppercase">
-                            {isHovering ? "Analyzing Unit..." : "Ready to Scan"}
+                            {isHovering ? "Wait for it..." : "Hover to View Demo"}
                         </span>
                     </div>
                 </div>
@@ -133,7 +133,7 @@ const InteractiveCard: React.FC<InteractiveCardProps> = ({ title, description, v
                 >
                     {isFlipped && (
                         <video
-                            src={video ?? "https://assets.mixkit.co/videos/preview/mixkit-abstract-cube-network-connection-background-94-large.mp4"}
+                            src={videoSrc}
                             autoPlay
                             loop
                             muted
@@ -147,9 +147,9 @@ const InteractiveCard: React.FC<InteractiveCardProps> = ({ title, description, v
                         <motion.div
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            className="bg-blue-500/20 backdrop-blur-md border border-blue-500/50 px-4 py-2 rounded-full"
+                            className="bg-primary backdrop-blur-md border border-orange-200-500/50 px-4 py-2 rounded-full"
                         >
-                            <span className="text-blue-300 text-xs font-bold tracking-widest">LIVE PREVIEW</span>
+                            <span className="text-white text-xs font-bold tracking-widest">{title}</span>
                         </motion.div>
                     </div>
                 </div>

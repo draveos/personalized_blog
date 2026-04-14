@@ -11,7 +11,7 @@ interface ProjectStub {
 
 const projects: ProjectStub[] = [
     {
-        title: "Atmosphere Editor",
+        title: "Inline Editor",
         description: "인라인 편집과 버전 관리가 한 화면에서 공존하는 라이트웨이트 CMS 실험.",
         stack: ["React", "TipTap", "Supabase"],
         year: "2026",

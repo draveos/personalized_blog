@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 const meta = [
@@ -12,14 +13,19 @@ export default function AboutPage() {
     return (
         <main className="min-h-screen bg-black text-white">
             <div className="max-w-6xl mx-auto px-6 pt-32 pb-24">
-                <header className="mb-24">
+                <motion.header
+                    className="mb-24"
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
+                >
                     <p className="text-xs font-mono uppercase tracking-[0.3em] text-white/40 mb-8">
                         About
                     </p>
                     <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.1] max-w-3xl">
                         인터페이스의 감각과 시스템의 무게 사이에서 씁니다.
                     </h1>
-                </header>
+                </motion.header>
 
                 <section className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
                     <div className="md:col-span-7 space-y-6 text-white/70 text-lg leading-[1.65] max-w-prose">

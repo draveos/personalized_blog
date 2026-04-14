@@ -2,15 +2,15 @@
 
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Menu, X, Home, Sparkles, Layers, BookOpen, Search, Plus, LogOut } from "lucide-react";
+import { Menu, X, Home, BookOpen, FolderGit2, User, Search, Plus, LogOut } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useAuth } from "../lib/auth-context";
 
 const NAV_LINKS = [
     { to: "/", label: "Home", icon: Home },
-    { to: "/#features", label: "Features", icon: Sparkles },
-    { to: "/#showcase", label: "Showcase", icon: Layers },
     { to: "/posts", label: "Posts", icon: BookOpen },
+    { to: "/projects", label: "Projects", icon: FolderGit2 },
+    { to: "/about", label: "About", icon: User },
 ];
 
 export function Navbar() {

@@ -1,4 +1,4 @@
-import { FilmHero } from "../components/FilmHero";
+import { FilmHero, type Slide } from "../components/FilmHero";
 import GlassFilters from "../components/GlassFilters";
 import { Navbar } from "../components/NavBar";
 import {LiquidGlassCursor} from "../components/LiquidGlassCursor";
@@ -13,6 +13,24 @@ import video1 from "../assets/water.mp4"
 import video2 from "../assets/paint.mp4"
 import video3 from "../assets/network.mp4"
 
+
+const heroSlides: Slide[] = [
+    {
+        main: "Quiet Code",
+        sub: "a working developer's field notes.",
+        accent: "Journal"
+    },
+    {
+        main: "Built Slow",
+        sub: "small experiments, patient craft.",
+        accent: "Portfolio"
+    },
+    {
+        main: "In Between",
+        sub: "fragments from the desk and the commute.",
+        accent: "Essays"
+    },
+];
 
 function App() {
     const latestPosts = getAllPosts().slice(0, 3);
@@ -35,7 +53,7 @@ function App() {
             <main>
                 {/* 3. Hero Section (영상 배경 + 흰색 텍스트 고정) */}
                 <section className="relative w-full bg-black">
-                    <FilmHero />
+                    <FilmHero slides={heroSlides} />
                 </section>
 
                 {/* 4. Intro Section: Secondary Hero */}

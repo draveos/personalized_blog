@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X, Home, Sparkles, Layers, BookOpen, Search } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Menu, X, Home, Sparkles, Layers, BookOpen, Search, Plus, LogOut } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useAuth } from "../lib/auth-context";
 
 const NAV_LINKS = [
     { to: "/", label: "Home", icon: Home },
@@ -15,6 +16,14 @@ const NAV_LINKS = [
 export function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const { isLoggedIn, logout } = useAuth();
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logout();
+        setMobileOpen(false);
+        navigate("/");
+    };
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 20);
@@ -61,12 +70,32 @@ export function Navbar() {
                             <Search className="w-5 h-5" />
                         </button>
 
-                        <Link
-                            to="/login"
-                            className="hidden md:block px-6 py-2.5 rounded-full text-sm font-bold bg-primary text-primary-foreground hover:scale-105 active:scale-95 transition-all shadow-lg"
-                        >
-                            Get Started
-                        </Link>
+                        {isLoggedIn ? (
+                            <div className="hidden md:flex items-center gap-2">
+                                <Link
+                                    to="/dashboard"
+                                    className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-bold bg-primary text-primary-foreground hover:scale-105 active:scale-95 transition-all shadow-lg"
+                                >
+                                    <Plus className="w-4 h-4" />
+                                    새 글
+                                </Link>
+                                <button
+                                    onClick={handleLogout}
+                                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all"
+                                    aria-label="Logout"
+                                >
+                                    <LogOut className="w-4 h-4" />
+                                    Logout
+                                </button>
+                            </div>
+                        ) : (
+                            <Link
+                                to="/login"
+                                className="hidden md:block px-6 py-2.5 rounded-full text-sm font-bold bg-primary text-primary-foreground hover:scale-105 active:scale-95 transition-all shadow-lg"
+                            >
+                                Login
+                            </Link>
+                        )}
 
                         {/* Mobile Toggle */}
                         <button
@@ -109,13 +138,33 @@ export function Navbar() {
                             ))}
                         </div>
 
-                        <Link
-                            to="/login"
-                            onClick={() => setMobileOpen(false)}
-                            className="mt-auto p-6 rounded-3xl bg-primary text-primary-foreground text-center text-2xl font-black shadow-2xl"
-                        >
-                            Get Started
-                        </Link>
+                        {isLoggedIn ? (
+                            <div className="mt-auto flex flex-col gap-3">
+                                <Link
+                                    to="/dashboard"
+                                    onClick={() => setMobileOpen(false)}
+                                    className="p-6 rounded-3xl bg-primary text-primary-foreground text-center text-2xl font-black shadow-2xl inline-flex items-center justify-center gap-3"
+                                >
+                                    <Plus className="w-6 h-6" />
+                                    새 글
+                                </Link>
+                                <button
+                                    onClick={handleLogout}
+                                    className="p-4 rounded-3xl bg-white/5 text-white/70 text-center text-base font-medium inline-flex items-center justify-center gap-2 hover:bg-white/10 transition-colors"
+                                >
+                                    <LogOut className="w-5 h-5" />
+                                    Logout
+                                </button>
+                            </div>
+                        ) : (
+                            <Link
+                                to="/login"
+                                onClick={() => setMobileOpen(false)}
+                                className="mt-auto p-6 rounded-3xl bg-primary text-primary-foreground text-center text-2xl font-black shadow-2xl"
+                            >
+                                Login
+                            </Link>
+                        )}
                     </motion.div>
                 )}
             </AnimatePresence>

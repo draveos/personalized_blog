@@ -5,13 +5,18 @@ import {LiquidGlassCursor} from "../components/LiquidGlassCursor";
 import InteractiveCard from "../components/InteractiveCard";
 import ShowcaseItem from "../components/ShowcaseItem";
 import CTASection from "../components/CTAsection";
+import { ScrollReveal } from "../components/ScrollReveal";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { getAllPosts } from "../lib/posts";
 import video1 from "../assets/water.mp4"
 import video2 from "../assets/paint.mp4"
 import video3 from "../assets/network.mp4"
 
 
 function App() {
+    const latestPosts = getAllPosts().slice(0, 3);
+
     return (
         /**
          * 전체 테마 설정
@@ -57,7 +62,7 @@ function App() {
                             transition={{ duration: 0.8 }}
                             className="text-sm font-bold tracking-[0.4em] uppercase text-primary mb-8"
                         >
-                            Visual-First Record
+                            Personal Log · 2026
                         </motion.p>
 
                         {/* 메인 타이틀: 한 줄씩 스르륵 */}
@@ -68,7 +73,7 @@ function App() {
                                 viewport={{ once: false, margin: "-100px" }}
                                 transition={{ duration: 0.8, delay: 0.1 }}
                             >
-                                Design your vision
+                                Notes from a
                             </motion.span>
                             <motion.span
                                 initial={{ opacity: 0, y: 50 }}
@@ -77,7 +82,7 @@ function App() {
                                 transition={{ duration: 0.8, delay: 0.3 }}
                                 className="italic font-serif text-primary font-light"
                             >
-                                not just a website.
+                                working developer.
                             </motion.span>
                         </h2>
 
@@ -89,7 +94,7 @@ function App() {
                             transition={{ duration: 1.5, delay: 1.5 }}
                             className="mt-16 text-lg text-white/60 md:text-xl max-w-2xl mx-auto leading-relaxed font-medium"
                         >
-                            당신의 모든 아이디어는 예술적인 기록이 됩니다.
+                            프론트엔드, 인터랙션, 그리고 사이드 프로젝트에 대한 개인 기록.
                         </motion.p>
                     </div>
                 </section>
@@ -98,36 +103,36 @@ function App() {
                 <section id="features" className="py-28 px-6 bg-black relative z-10 ">
                     <div className="max-w-6xl mx-auto ">
                         <h2 className="text-4xl md:text-6xl font-bold text-white text-center mb-20 tracking-tighter">
-                            Essential Toolkit
+                            What I write about
                         </h2>
 
                         {/* 그리드 컨테이너 */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {[
                                 {
-                                    title: "Drag & Drop",
-                                    description: "직관적인 인터페이스로 요소를 자유롭게 배치하세요. 복잡한 코딩 없이 드래그만으로 레이아웃이 완성됩니다.",
+                                    title: "Frontend Craft",
+                                    description: "React, TypeScript, Tailwind. 매일 마주치는 UI 엔지니어링 문제와 내가 택한 해결 방식을 기록합니다.",
                                     video: video1
                                 },
                                 {
-                                    title: "Visual Styling",
-                                    description: "색상, 폰트, 간격을 실시간 시각적 컨트롤로 커스텀합니다. 당신의 감각을 즉시 반영하세요."
+                                    title: "Motion & Interaction",
+                                    description: "Framer Motion과 CSS만으로 만드는 섬세한 모션. 스크롤, 호버, 전환 — 감각을 코드로 옮기는 과정."
                                 },
                                 {
-                                    title: "Block System",
-                                    description: "미리 빌드된 고품질 블록들로 빠르게 구조를 잡으세요. 생산성이 비약적으로 상승합니다."
+                                    title: "Design Systems",
+                                    description: "토큰, 타이포, 컬러 팔레트. 규칙이 있는 시각 언어를 어떻게 유지할지 고민하고 반복합니다."
                                 },
                                 {
-                                    title: "Instant Preview",
-                                    description: "수정 사항을 즉시 확인하세요. 보이는 그대로 결과물이 되는 마법 같은 경험을 제공합니다."
+                                    title: "Side Projects",
+                                    description: "주말마다 쌓아가는 작은 실험들. 완성도보다 발견에 집중하는 공간입니다."
                                 },
                                 {
-                                    title: "AI Intelligence",
-                                    description: "번역부터 요약까지, 당신의 기록을 AI가 더 가치 있게 만듭니다. 스마트한 작업의 시작입니다."
+                                    title: "Reading Notes",
+                                    description: "기술서와 에세이에서 건져 올린 문장들. 코드가 아닌 생각의 레이어를 정리합니다."
                                 },
                                 {
-                                    title: "Multi-Platform",
-                                    description: "블로그부터 개인 대시보드까지 하나의 공간에서 관리하세요. 어디서든 접근 가능한 클라우드 기반입니다."
+                                    title: "Retrospectives",
+                                    description: "끝난 프로젝트를 천천히 되짚는 글. 무엇을 얻었고 어디서 막혔는지 담백하게 남깁니다."
                                 },
                             ].map((feature, i) => (
                                 // 기존 div 대신 InteractiveCard를 렌더링합니다.
@@ -146,7 +151,7 @@ function App() {
                 <section id="showcase" className="py-40 px-6 bg-black relative z-10">
                     <div className="max-w-6xl mx-auto flex flex-col gap-20">
                         <div className="mb-10 px-4">
-                            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-white">How it works</h2>
+                            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-white">How I work</h2>
                             <div className="h-1 w-24 bg-primary rounded-full" />
                         </div>
 
@@ -154,20 +159,20 @@ function App() {
                             {[
                                 {
                                     step: "01",
-                                    title: "Choose & Create",
-                                    desc: "빈 캔버스에서 시작하거나 템플릿을 선택하세요. 당신의 상상력이 현실이 되는 첫 번째 단계입니다.",
+                                    title: "Observe & Sketch",
+                                    desc: "좋은 인터페이스는 관찰에서 시작합니다. 레퍼런스를 모으고, 손으로 스케치하며 문제의 결을 파악합니다.",
                                     video: video1
                                 },
                                 {
                                     step: "02",
-                                    title: "Drag & Design",
-                                    desc: "블록을 추가하고, 위치를 바꾸며 모든 디테일을 다듬습니다. 코딩 없이도 완벽한 픽셀 퍼펙트를 구현하세요.",
+                                    title: "Prototype in Code",
+                                    desc: "아이디어는 실제 동작하는 프로토타입이 될 때 비로소 검증됩니다. 빠르게 만들고, 과감히 버리는 과정을 반복합니다.",
                                     video: video2
                                 },
                                 {
                                     step: "03",
-                                    title: "Publish & Share",
-                                    desc: "만족스럽다면 단 한 번의 클릭으로 세상에 공유하세요. 전 세계 어디서든 당신의 결과물을 확인할 수 있습니다.",
+                                    title: "Write & Revisit",
+                                    desc: "만든 것을 글로 옮길 때 비로소 이해가 단단해집니다. 나중의 나를 위한 기록을 남기는 것이 마지막 단계입니다.",
                                     video: video3
                                 },
                             ].map((item, i) => (
@@ -183,20 +188,75 @@ function App() {
                     </div>
                 </section>
 
-                {/* 7. CTA: 강렬한 하단 카드 */}
+                {/* 7. Latest writing */}
+                <section id="latest" className="py-40 px-6 bg-black relative z-10">
+                    <div className="max-w-6xl mx-auto">
+                        <div className="mb-20 flex items-end justify-between gap-8 px-4">
+                            <div>
+                                <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-white">Latest writing</h2>
+                                <div className="h-1 w-24 bg-primary rounded-full mt-4" />
+                            </div>
+                            <Link
+                                to="/posts"
+                                className="hidden md:inline-block text-sm font-medium tracking-[0.2em] uppercase text-white/60 hover:text-white transition-colors"
+                            >
+                                All posts →
+                            </Link>
+                        </div>
+
+                        {latestPosts.length === 0 ? (
+                            <ScrollReveal>
+                                <div className="px-4 py-16 text-center text-white/50 text-lg">
+                                    아직 발행된 글이 없습니다.{" "}
+                                    <Link to="/posts" className="text-primary hover:underline">목록 보기</Link>
+                                </div>
+                            </ScrollReveal>
+                        ) : (
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+                                {latestPosts.map((post, i) => (
+                                    <ScrollReveal key={post.slug} delay={i * 120}>
+                                        <Link
+                                            to={`/posts/${post.slug}`}
+                                            className="group block h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-primary/60 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
+                                        >
+                                            <article className="flex flex-col h-full gap-6 py-8">
+                                                <time className="text-xs font-medium tracking-[0.3em] uppercase text-white/40">
+                                                    {post.date}
+                                                </time>
+                                                <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-white leading-tight group-hover:text-primary transition-colors">
+                                                    {post.title}
+                                                </h3>
+                                                {post.excerpt && (
+                                                    <p className="text-white/60 leading-relaxed text-base line-clamp-3">
+                                                        {post.excerpt}
+                                                    </p>
+                                                )}
+                                                <span className="mt-auto text-sm font-medium tracking-[0.2em] uppercase text-white/40 group-hover:text-white transition-colors">
+                                                    Read →
+                                                </span>
+                                            </article>
+                                        </Link>
+                                    </ScrollReveal>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </section>
+
+                {/* 8. CTA: 강렬한 하단 카드 */}
                 <CTASection />
             </main>
 
-            {/* 8. Footer */}
+            {/* 9. Footer */}
             <footer className="py-16 px-6 border-t border-border">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-sm font-medium text-muted-foreground">
                     <div className="flex items-center gap-2">
-                        <span className="text-foreground font-black tracking-tighter text-lg uppercase">Studio.</span>
-                        <span>© 2026. All rights reserved.</span>
+                        <span className="text-foreground font-black tracking-tighter text-lg uppercase">Sejin.</span>
+                        <span>© 2026. Personal log.</span>
                     </div>
                     <div className="flex gap-10">
-                        <a href="#" className="hover:text-foreground transition-colors">Terms of Service</a>
-                        <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
+                        <a href="#" className="hover:text-foreground transition-colors">About</a>
+                        <a href="#" className="hover:text-foreground transition-colors">RSS</a>
                         <a href="#" className="hover:text-foreground transition-colors">Contact</a>
                     </div>
                 </div>

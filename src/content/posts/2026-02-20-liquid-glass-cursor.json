@@ -1,8 +1,0 @@
-{
-  "slug": "liquid-glass-cursor",
-  "title": "LiquidGlassCursor 구현기 — SVG 필터와 마우스 보간의 조합",
-  "date": "2026-02-20",
-  "excerpt": "커서를 따라 유리 방울이 흐르듯 움직이는 LiquidGlassCursor 컴포넌트를 만들며 겪은 시행착오를 정리했습니다. feGaussianBlur와 feColorMatrix로 구성한 goo 필터, requestAnimationFrame 기반 보간, 그리고 '과하지 않게' 멈추는 감각에 대한 기록입니다.",
-  "tags": ["React", "SVG", "인터랙션"],
-  "body": "## 왜 만들었나\n\n기본 커서는 정보가 없고, 과장된 커스텀 커서는 시선을 빼앗습니다. 그 사이 어딘가 — 존재를 인지할 정도의 작은 유리 방울 — 을 노렸습니다.\n\n## 핵심 아이디어\n\n두 개의 원을 그립니다. 하나는 커서를 즉시 따라가고, 하나는 lerp(0.15)로 지연됩니다. 두 원을 같은 SVG 필터 아래 두면 사이가 끈적하게 연결되는 goo 효과가 생깁니다.\n\n```tsx\n<filter id=\"goo\">\n  <feGaussianBlur stdDeviation=\"8\" />\n  <feColorMatrix values=\"1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10\" />\n</filter>\n```\n\n## 보간 루프\n\n```ts\nfunction tick() {\n  x += (targetX - x) * 0.15;\n  y += (targetY - y) * 0.15;\n  requestAnimationFrame(tick);\n}\n```\n\n계수를 0.2 이상으로 올리면 '딸려온다'는 느낌이 사라지고, 0.1 이하로 내리면 둔하게 느껴졌습니다. 0.15가 가장 자연스러웠습니다.\n\n## prefers-reduced-motion\n\n미디어 쿼리를 읽어 효과를 완전히 끄는 버전을 기본으로 제공합니다. 접근성은 옵션이 아니라 기본값이어야 합니다.\n\n## 남은 과제\n\n- 모바일 터치 환경에서는 완전히 비활성화.\n- 다크/라이트 모드에 따라 goo의 컬러 매트릭스 튜닝.\n- 포커스 이동과의 충돌 방지 (키보드 사용자 고려)."
-}

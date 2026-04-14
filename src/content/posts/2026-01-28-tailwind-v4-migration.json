@@ -1,8 +1,0 @@
-{
-  "slug": "tailwind-v4-migration",
-  "title": "Tailwind v4 마이그레이션 — 설정 파일이 사라진 세계",
-  "date": "2026-01-28",
-  "excerpt": "사내 디자인 시스템을 Tailwind v3에서 v4로 옮기며 얻은 교훈을 공유합니다. tailwind.config.js 대신 CSS로 토큰을 선언하는 새 모델, `@theme` 디렉티브, Vite 플러그인 통합까지 — 그리고 마이그레이션 도중 놓치기 쉬운 함정 몇 가지.",
-  "tags": ["Tailwind", "CSS", "마이그레이션"],
-  "body": "## 가장 큰 변화\n\nv4는 설정을 JS가 아니라 CSS에서 합니다. `@theme { --color-accent: oklch(...); }` 형태로 토큰을 선언하면, Tailwind가 유틸 클래스를 자동 생성합니다. IDE 자동완성도 함께 동작합니다.\n\n## Vite 통합\n\n```ts\nimport tailwindcss from '@tailwindcss/vite';\nexport default defineConfig({ plugins: [react(), tailwindcss()] });\n```\n\nPostCSS 설정이 필요 없어졌습니다. 빌드 속도는 체감상 2배 정도 빨라졌고, HMR도 더 매끄럽습니다.\n\n## 함정들\n\n1. **`bg-opacity-*` 유틸 제거.** `bg-black/50` 슬래시 문법만 남았습니다. 레거시 클래스를 grep으로 잡고 치환.\n2. **`@apply` 가능 범위 축소.** 복잡한 커스텀 셀렉터에서 잘 안 먹습니다. 일부는 plain CSS로 풀어야 했습니다.\n3. **다크모드 전략.** class 기반을 유지하려면 `@custom-variant dark` 선언이 필요합니다.\n\n## 토큰 설계 다시 생각\n\n마이그레이션은 토큰 점검 기회이기도 했습니다. 5개 코어 색, 3개 중립 스케일, 1개 accent로 줄이고 보니 UI가 오히려 더 단정해졌습니다. 도구 변경이 디자인을 되돌아보게 했습니다.\n\n## 결론\n\n기능적 이득도 크지만, CSS-first 모델이 주는 개념적 명료함이 더 값졌습니다. 다음 프로젝트부터는 처음부터 v4로 시작할 겁니다."
-}

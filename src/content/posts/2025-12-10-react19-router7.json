@@ -1,8 +1,0 @@
-{
-  "slug": "react19-router7",
-  "title": "React 19 + Router 7 체감 — Actions와 Data API의 재정비",
-  "date": "2025-12-10",
-  "excerpt": "프로덕션 앱을 React 19와 React Router 7로 올리며 느낀 변화들을 정리했습니다. Actions, useActionState, 그리고 Router 7의 데이터 모델이 어떻게 폼 처리와 낙관적 업데이트 패턴을 단순화했는지 — 실제 코드 비교와 함께 남깁니다.",
-  "tags": ["React", "React Router", "업그레이드"],
-  "body": "## Actions가 바꾼 것\n\n과거엔 폼 제출 시 상태(loading, error, success)를 직접 들고 다녔습니다. 19의 `useActionState`는 이 셋을 한 훅으로 모읍니다.\n\n```tsx\nconst [state, submit, pending] = useActionState(saveProfile, initial);\n```\n\n코드 라인 수가 줄어든 것보다, '상태를 어디 둘지' 고민할 필요가 없어진 게 더 큽니다.\n\n## 낙관적 업데이트\n\n`useOptimistic`은 좋아요 버튼 같은 UI에서 진가를 발휘했습니다. 서버 응답 전에 UI를 먼저 갱신하고, 실패 시 자동 롤백. 커스텀 로직 없이 한 훅으로 끝납니다.\n\n## Router 7\n\nRemix와 React Router가 합쳐지며 데이터 API가 1급 시민이 됐습니다. `loader`, `action`으로 라우트 단위의 데이터/변이를 선언하고, 컴포넌트는 순수하게 렌더링만.\n\n```tsx\nexport async function loader({ params }: LoaderArgs) {\n  return getPost(params.slug);\n}\n```\n\n## 마이그레이션 메모\n\n- StrictMode의 이중 렌더링이 19에서 몇몇 이펙트 패턴을 드러냅니다. 이번에 오래된 버그 2건 발견.\n- `forwardRef`가 더 이상 강제되지 않아 코드가 담백해졌습니다.\n- Suspense 경계가 더 관대해져 부분 로딩 UI 조립이 쉬워졌습니다.\n\n## 총평\n\n프레임워크가 '내 대신 생각해주는' 구간이 넓어졌습니다. 덜 쓰고 더 많이 표현하는 방향. 좋은 업그레이드였습니다."
-}

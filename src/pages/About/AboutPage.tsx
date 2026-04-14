@@ -22,7 +22,7 @@ export default function AboutPage() {
                     <p className="text-xs font-mono uppercase tracking-[0.3em] text-white/40 mb-8">
                         About
                     </p>
-                    <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.1] max-w-3xl">
+                    <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.1] max-w-3xl break-keep">
                         인터페이스의 감각과 시스템의 무게 사이에서 씁니다.
                     </h1>
                 </motion.header>

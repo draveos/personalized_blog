@@ -62,7 +62,7 @@ export default function LoginPage() {
                     {/* Single glass card */}
                     <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-8 md:p-10">
                         <header className="mb-8">
-                            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">
+                            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1] break-keep">
                                 Sign in
                             </h1>
                             <p className="mt-3 text-base text-white/50 leading-relaxed">

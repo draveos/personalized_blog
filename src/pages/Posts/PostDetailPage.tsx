@@ -17,7 +17,7 @@ function NotFound({ slug }: { slug: string }) {
                 <p className="text-xs font-mono uppercase tracking-[0.3em] text-white/40 mb-6">
                     404 · Missing
                 </p>
-                <h1 className="text-3xl md:text-5xl font-semibold tracking-tight leading-[1.15]">
+                <h1 className="text-3xl md:text-5xl font-semibold tracking-tight leading-[1.15] break-keep max-w-[20ch]">
                     찾는 글이 여기에 없습니다.
                 </h1>
                 <p className="mt-6 text-white/55 text-lg leading-relaxed">
@@ -70,7 +70,7 @@ export default function PostDetailPage() {
                             </>
                         ) : null}
                     </div>
-                    <h1 className="text-3xl md:text-5xl font-semibold tracking-tight leading-[1.15] text-white">
+                    <h1 className="text-3xl md:text-5xl font-semibold tracking-tight leading-[1.15] text-white break-keep">
                         {post.title}
                     </h1>
                     {post.excerpt && (

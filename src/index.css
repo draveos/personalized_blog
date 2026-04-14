@@ -131,6 +131,10 @@
   .animate-progress {
     animation: progress 4s linear forwards;
   }
+  .headline-ko {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
 }
 
 .glass-wavy-bg {

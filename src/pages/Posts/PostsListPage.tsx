@@ -19,7 +19,7 @@ export default function PostsListPage() {
                     <p className="text-xs font-mono uppercase tracking-[0.3em] text-white/40 mb-6">
                         Journal · {posts.length.toString().padStart(2, "0")}
                     </p>
-                    <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.1]">
+                    <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.1] break-keep max-w-[20ch]">
                         쓰는 것이 만드는 것보다 먼저.
                     </h1>
                     <p className="mt-6 max-w-xl text-white/55 text-lg leading-relaxed">
@@ -54,7 +54,7 @@ export default function PostsListPage() {
                                                 </>
                                             ) : null}
                                         </div>
-                                        <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-white leading-snug transition-colors group-hover:text-primary">
+                                        <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-white leading-snug transition-colors group-hover:text-primary break-keep">
                                             {post.title}
                                         </h2>
                                         <p className="mt-3 text-white/55 leading-relaxed line-clamp-2">

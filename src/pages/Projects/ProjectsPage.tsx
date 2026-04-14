@@ -39,7 +39,7 @@ export default function ProjectsPage() {
                         <p className="text-xs font-mono uppercase tracking-[0.3em] text-white/40 mb-6">
                             Projects · In progress
                         </p>
-                        <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.1]">
+                        <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.1] break-keep max-w-[22ch]">
                             만드는 중인 것들, 그리고 곧 공개될 것들.
                         </h1>
                     </div>
@@ -78,7 +78,7 @@ export default function ProjectsPage() {
                                     </div>
                                     <span className="w-1.5 h-1.5 rounded-full bg-white/30 mt-1.5" aria-hidden="true" />
                                 </div>
-                                <h2 className="mt-6 text-2xl md:text-3xl font-semibold tracking-tight leading-snug">
+                                <h2 className="mt-6 text-2xl md:text-3xl font-semibold tracking-tight leading-snug break-keep">
                                     {project.title}
                                 </h2>
                                 <p className="mt-4 text-white/55 leading-relaxed max-w-prose">

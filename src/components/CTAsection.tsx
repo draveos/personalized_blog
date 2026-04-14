@@ -27,7 +27,7 @@ export default function CTASection() {
                     </div>
 
                     {/* 3. 메인 카피 */}
-                    <h2 className="text-4xl md:text-7xl font-bold mb-16 tracking-tighter text-white leading-[1.1]">
+                    <h2 className="text-4xl md:text-7xl font-bold mb-16 tracking-tighter text-white leading-[1.1] break-keep max-w-[22ch] mx-auto">
                         Ready to <span className="text-primary italic px-2">Start?</span>
                     </h2>
 

@@ -131,7 +131,7 @@ function App() {
                 {/* 5. Features Grid: 주요 기능 소개 (카드 스타일) */}
                 <section id="features" className="py-28 px-6 bg-black relative z-10 ">
                     <div className="max-w-6xl mx-auto ">
-                        <h2 className="text-4xl md:text-6xl font-bold text-white text-center mb-20 tracking-tighter">
+                        <h2 className="text-4xl md:text-6xl font-bold text-white text-center mb-20 tracking-tighter break-keep">
                             What I write about
                         </h2>
 
@@ -180,7 +180,7 @@ function App() {
                 <section id="showcase" className="py-40 px-6 bg-black relative z-10">
                     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-16">
                         <div className="md:col-span-5 md:sticky md:top-24 self-start">
-                            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-white">How I work</h2>
+                            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-white break-keep">How I work</h2>
                             <div className="h-1 w-24 bg-primary rounded-full mb-8" />
                             <p className="text-white/60 leading-relaxed text-base max-w-sm">
                                 관찰에서 기록까지 — 작은 프로젝트 하나를 매듭짓기 위해 반복하는 세 단계.
@@ -225,7 +225,7 @@ function App() {
                     <div className="max-w-6xl mx-auto">
                         <div className="mb-20 flex items-end justify-between gap-8 px-4">
                             <div>
-                                <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-white">Latest writing</h2>
+                                <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-white break-keep">Latest writing</h2>
                                 <div className="h-1 w-24 bg-primary rounded-full mt-4" />
                             </div>
                             <Link
@@ -243,7 +243,7 @@ function App() {
                                         <p className="text-xs font-medium tracking-[0.25em] uppercase text-white/40 mb-6">
                                             Coming soon
                                         </p>
-                                        <h3 className="text-4xl md:text-6xl font-semibold tracking-tighter text-white leading-[1.1]">
+                                        <h3 className="text-4xl md:text-6xl font-semibold tracking-tighter text-white leading-[1.1] break-keep max-w-[18ch]">
                                             첫 글을 <br />준비 중입니다.
                                         </h3>
                                     </div>
@@ -276,7 +276,7 @@ function App() {
                                                 >
                                                     {formatKoDate(post.date)}
                                                 </time>
-                                                <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-white leading-tight group-hover:text-primary transition-colors">
+                                                <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-white leading-tight group-hover:text-primary transition-colors break-keep">
                                                     {post.title}
                                                 </h3>
                                                 {post.excerpt && (

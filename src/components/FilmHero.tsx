@@ -109,7 +109,7 @@ export function FilmHero({ slides: slidesProp }: FilmHeroProps = {}) {
                                 <span className="text-sm font-bold tracking-[0.4em] uppercase text-white/60 mb-6 block animate-pulse-slow">
                                     {slides[index].accent} Studio
                                 </span>
-                                <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-[0.85] text-white mb-8">
+                                <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-[0.85] text-white mb-8 break-keep max-w-[18ch] mx-auto">
                                     {slides[index].main}
                                     <span className="block text-3xl md:text-5xl font-serif italic font-light text-white/70 mt-4">
                                         & {slides[index].sub}

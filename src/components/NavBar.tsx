@@ -57,7 +57,7 @@ export function Navbar() {
                             <Link
                                 key={link.label}
                                 to={link.to}
-                                className="px-5 py-2 rounded-full text-sm font-medium text-white hover:text-primary hover:bg-white/5 transition-all"
+                                className="px-5 py-2 rounded-full text-sm font-medium text-white hover:bg-white/5 transition-all"
                             >
                                 {link.label}
                             </Link>
@@ -66,7 +66,7 @@ export function Navbar() {
 
                     {/* Right Section */}
                     <div className="flex items-center gap-4">
-                        <button className="p-2 text-white/60 hover:text-primary transition-colors">
+                        <button className="p-2 text-white/60 hover:text-white transition-colors">
                             <Search className="w-5 h-5" />
                         </button>
 
@@ -74,7 +74,7 @@ export function Navbar() {
                             <div className="hidden md:flex items-center gap-2">
                                 <Link
                                     to="/dashboard"
-                                    className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-bold bg-primary text-primary-foreground hover:scale-105 active:scale-95 transition-all shadow-lg"
+                                    className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-medium text-white border border-white/15 hover:bg-white/10 transition-all"
                                 >
                                     <Plus className="w-4 h-4" />
                                     새 글
@@ -130,10 +130,10 @@ export function Navbar() {
                                     key={link.label}
                                     to={link.to}
                                     onClick={() => setMobileOpen(false)}
-                                    className="text-5xl font-bold text-white/30 hover:text-primary transition-all flex items-center justify-between group"
+                                    className="text-5xl font-bold text-white/30 hover:text-white transition-all flex items-center justify-between group"
                                 >
                                     {link.label}
-                                    <link.icon className="w-10 h-10 group-hover:text-primary transition-colors" />
+                                    <link.icon className="w-10 h-10 group-hover:text-white transition-colors" />
                                 </Link>
                             ))}
                         </div>
@@ -143,7 +143,7 @@ export function Navbar() {
                                 <Link
                                     to="/dashboard"
                                     onClick={() => setMobileOpen(false)}
-                                    className="p-6 rounded-3xl bg-primary text-primary-foreground text-center text-2xl font-black shadow-2xl inline-flex items-center justify-center gap-3"
+                                    className="p-6 rounded-3xl border border-white/15 text-white text-center text-2xl font-bold inline-flex items-center justify-center gap-3 hover:bg-white/10 transition-colors"
                                 >
                                     <Plus className="w-6 h-6" />
                                     새 글

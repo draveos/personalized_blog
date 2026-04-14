@@ -238,9 +238,27 @@ function App() {
 
                         {latestPosts.length === 0 ? (
                             <ScrollReveal>
-                                <div className="px-4 py-16 text-center text-white/50 text-lg">
-                                    아직 발행된 글이 없습니다.{" "}
-                                    <Link to="/posts" className="text-primary hover:underline">목록 보기</Link>
+                                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 px-4 py-24">
+                                    <div className="md:col-span-7">
+                                        <p className="text-xs font-medium tracking-[0.25em] uppercase text-white/40 mb-6">
+                                            Coming soon
+                                        </p>
+                                        <h3 className="text-4xl md:text-6xl font-semibold tracking-tighter text-white leading-[1.1]">
+                                            첫 글을 <br />준비 중입니다.
+                                        </h3>
+                                    </div>
+                                    <div className="md:col-span-4 md:col-start-9 flex flex-col justify-end gap-6">
+                                        <p className="text-base text-white/60 leading-relaxed max-w-prose">
+                                            생각이 정리되는 대로 이곳에 먼저 도착합니다.
+                                            그 전까지 지나간 기록을 둘러보실 수 있어요.
+                                        </p>
+                                        <Link
+                                            to="/posts"
+                                            className="inline-block text-sm font-medium tracking-[0.2em] uppercase text-white/60 hover:text-white transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-primary/60 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
+                                        >
+                                            Browse archive →
+                                        </Link>
+                                    </div>
                                 </div>
                             </ScrollReveal>
                         ) : (

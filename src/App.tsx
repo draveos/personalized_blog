@@ -10,6 +10,8 @@ import MainPage from "./pages/MainPage";
 import LoginPage from "./pages/login/LoginPage";
 import DashBoardPage from "./pages/Dashboard/DashBoard"
 import BuilderPage from './pages/Builder/BuilderPage'
+import PostsListPage from './pages/Posts/PostsListPage'
+import PostDetailPage from './pages/Posts/PostDetailPage'
 import {SiteStoreProvider} from "./lib/site-store"
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
                             <Route path="/login" element={<LoginPage />} />
                             <Route path="/dashboard" element={<DashBoardPage />} />
                             <Route path="/builder/:siteId" element={<BuilderPage />} />
+                            <Route path="/posts" element={<PostsListPage />} />
+                            <Route path="/posts/:slug" element={<PostDetailPage />} />
                         </Routes>
                     </div>
                 </Router>

@@ -179,10 +179,36 @@ function App() {
                 <section id="showcase" className="py-40 px-6 bg-black relative z-10">
                     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-16">
                         <div className="md:col-span-5 md:sticky md:top-24 self-start">
-                            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-white break-keep">How I work</h2>
-                            <div className="h-1 w-24 bg-primary rounded-full mb-8" />
-                            <p className="text-white/60 leading-relaxed text-base max-w-sm">
+                            <p className="text-xs font-mono uppercase tracking-[0.3em] text-white/40 mb-6">
+                                Process
+                            </p>
+                            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 text-white break-keep">
+                                How I work
+                            </h2>
+                            <div className="h-1 w-24 bg-primary rounded-full mb-10" />
+
+                            <p className="text-white/60 leading-relaxed text-base max-w-sm mb-10">
                                 관찰에서 기록까지 — 작은 프로젝트 하나를 매듭짓기 위해 반복하는 세 단계.
+                            </p>
+
+                            <ol className="space-y-3 max-w-sm mb-12">
+                                {[
+                                    { num: "01", label: "Observe & Sketch" },
+                                    { num: "02", label: "Prototype in Code" },
+                                    { num: "03", label: "Write & Revisit" },
+                                ].map((item) => (
+                                    <li
+                                        key={item.num}
+                                        className="flex items-baseline justify-between gap-4 text-sm font-mono border-b border-white/5 pb-3"
+                                    >
+                                        <span className="text-white/35 tracking-widest">{item.num}</span>
+                                        <span className="text-white/70 tracking-tight uppercase">{item.label}</span>
+                                    </li>
+                                ))}
+                            </ol>
+
+                            <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/30 max-w-sm">
+                                Process over outcome.
                             </p>
                         </div>
 

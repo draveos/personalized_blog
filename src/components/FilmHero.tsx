@@ -107,7 +107,7 @@ export function FilmHero({ slides: slidesProp }: FilmHeroProps = {}) {
                                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                             >
                                 <span className="text-sm font-bold tracking-[0.4em] uppercase text-white/60 mb-6 block animate-pulse-slow">
-                                    {slides[index].accent} 
+                                    {slides[index].accent}
                                 </span>
                                 <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-[0.85] text-white mb-8 break-keep max-w-[18ch] mx-auto">
                                     {slides[index].main}

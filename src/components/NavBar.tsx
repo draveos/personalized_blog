@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Menu, X, Home, BookOpen, FolderGit2, User, Search, Plus, LogOut } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useAuth } from "../lib/auth-context";
@@ -54,13 +54,20 @@ export function Navbar() {
                     {/* Desktop Links */}
                     <div className="hidden md:flex items-center gap-1 p-1 rounded-full bg-white/5 backdrop-blur-md border border-white/5">
                         {NAV_LINKS.map((link) => (
-                            <Link
+                            <NavLink
                                 key={link.label}
                                 to={link.to}
-                                className="px-5 py-2 rounded-full text-sm font-medium text-white hover:bg-white/5 transition-all"
+                                end={link.to === "/"}
+                                className={({ isActive }) =>
+                                    `px-5 py-2 rounded-full text-sm font-medium transition-all ${
+                                        isActive
+                                            ? "bg-white/10 text-white"
+                                            : "text-white/70 hover:text-white hover:bg-white/5"
+                                    }`
+                                }
                             >
                                 {link.label}
-                            </Link>
+                            </NavLink>
                         ))}
                     </div>
 
@@ -126,15 +133,20 @@ export function Navbar() {
 
                         <div className="flex flex-col gap-8">
                             {NAV_LINKS.map((link) => (
-                                <Link
+                                <NavLink
                                     key={link.label}
                                     to={link.to}
+                                    end={link.to === "/"}
                                     onClick={() => setMobileOpen(false)}
-                                    className="text-5xl font-bold text-white/30 hover:text-white transition-all flex items-center justify-between group"
+                                    className={({ isActive }) =>
+                                        `text-5xl font-bold transition-all flex items-center justify-between group ${
+                                            isActive ? "text-white" : "text-white/30 hover:text-white"
+                                        }`
+                                    }
                                 >
                                     {link.label}
                                     <link.icon className="w-10 h-10 group-hover:text-white transition-colors" />
-                                </Link>
+                                </NavLink>
                             ))}
                         </div>
 

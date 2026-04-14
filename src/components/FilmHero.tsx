@@ -5,28 +5,42 @@ import video1 from "../assets/rain.mp4"
 import video2 from "../assets/city.mp4"
 import video3 from "../assets/nature.mp4"
 
-const slides = [
+export interface Slide {
+    main: string;
+    sub: string;
+    accent: string;
+}
+
+interface FilmHeroProps {
+    slides?: Slide[];
+}
+
+const defaultSlides: Slide[] = [
     {
         main: "Atmosphere",
         sub: "embrace the rhythm of rain.",
-        video: video1,
         accent: "Contemplation"
     },
     {
         main: "Structure",
         sub: "building ideas in the city light.",
-        video: video2,
         accent: "Architecture"
     },
     {
         main: "Organic",
         sub: "nature's raw and pure record.",
-        video: video3,
         accent: "Dynamic"
     },
 ];
 
-export function FilmHero() {
+const videos = [video1, video2, video3];
+
+export function FilmHero({ slides: slidesProp }: FilmHeroProps = {}) {
+    const source = slidesProp ?? defaultSlides;
+    const slides = videos.map((video, i) => ({
+        ...(source[i] ?? defaultSlides[i]),
+        video,
+    }));
     const [index, setIndex] = useState(0);
     const [direction, setDirection] = useState(0); // 슬라이드 방향 감지
 
@@ -36,12 +50,12 @@ export function FilmHero() {
 
     const handleNext = useCallback(() => {
         setDirection(1);
-        setIndex((prev) => (prev + 1) % slides.length);
+        setIndex((prev) => (prev + 1) % videos.length);
     }, []);
 
     const handlePrev = useCallback(() => {
         setDirection(-1);
-        setIndex((prev) => (prev - 1 + slides.length) % slides.length);
+        setIndex((prev) => (prev - 1 + videos.length) % videos.length);
     }, []);
 
     useEffect(() => {

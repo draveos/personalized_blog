@@ -12,6 +12,8 @@ import DashBoardPage from "./pages/Dashboard/DashBoard"
 import BuilderPage from './pages/Builder/BuilderPage'
 import PostsListPage from './pages/Posts/PostsListPage'
 import PostDetailPage from './pages/Posts/PostDetailPage'
+import ProjectsPage from './pages/Projects/ProjectsPage'
+import AboutPage from './pages/About/AboutPage'
 import {SiteStoreProvider} from "./lib/site-store"
 import { ProtectedRoute } from "./components/ProtectedRoute"
 
@@ -46,6 +48,8 @@ function App() {
                             />
                             <Route path="/posts" element={<PostsListPage />} />
                             <Route path="/posts/:slug" element={<PostDetailPage />} />
+                            <Route path="/projects" element={<ProjectsPage />} />
+                            <Route path="/about" element={<AboutPage />} />
                         </Routes>
                     </div>
                 </Router>

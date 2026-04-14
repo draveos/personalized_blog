@@ -32,6 +32,17 @@ const heroSlides: Slide[] = [
     },
 ];
 
+const dateFormatter = new Intl.DateTimeFormat("ko-KR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+});
+
+function formatKoDate(iso: string): string {
+    const parsed = new Date(iso);
+    return Number.isNaN(parsed.getTime()) ? iso : dateFormatter.format(parsed);
+}
+
 function App() {
     const latestPosts = getAllPosts().slice(0, 3);
 
@@ -237,9 +248,12 @@ function App() {
                                             to={`/posts/${post.slug}`}
                                             className="group block h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-primary/60 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
                                         >
-                                            <article className="flex flex-col h-full gap-6 py-8">
-                                                <time className="text-xs font-medium tracking-[0.3em] uppercase text-white/40">
-                                                    {post.date}
+                                            <article className="flex flex-col h-full gap-5 border-t border-white/10 pt-8 pb-2 transition-colors duration-300 group-hover:border-primary/40">
+                                                <time
+                                                    dateTime={post.date}
+                                                    className="text-xs font-medium tracking-[0.25em] uppercase text-white/40"
+                                                >
+                                                    {formatKoDate(post.date)}
                                                 </time>
                                                 <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-white leading-tight group-hover:text-primary transition-colors">
                                                     {post.title}
@@ -249,7 +263,14 @@ function App() {
                                                         {post.excerpt}
                                                     </p>
                                                 )}
-                                                <span className="mt-auto text-sm font-medium tracking-[0.2em] uppercase text-white/40 group-hover:text-white transition-colors">
+                                                {post.tags.length > 0 && (
+                                                    <ul className="flex flex-wrap gap-x-3 gap-y-1 text-[0.65rem] font-medium tracking-[0.2em] uppercase text-white/40">
+                                                        {post.tags.map((tag) => (
+                                                            <li key={tag}>#{tag}</li>
+                                                        ))}
+                                                    </ul>
+                                                )}
+                                                <span className="mt-auto pt-4 text-sm font-medium tracking-[0.2em] uppercase text-white/40 group-hover:text-white transition-colors">
                                                     Read →
                                                 </span>
                                             </article>

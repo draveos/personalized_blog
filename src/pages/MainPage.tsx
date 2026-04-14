@@ -16,17 +16,17 @@ import video3 from "../assets/network.mp4"
 const heroSlides: Slide[] = [
     {
         main: "Sejin Kim",
-        sub: "실험과 기록. 관람자로 편하게 둘러보세요.",
+        sub: "Dynamic Portfolio",
         accent: "Hello"
     },
     {
-        main: "Between sips",
-        sub: "커피와 커피 사이, 쌓이는 노트들.",
+        main: "Look around Freely",
+        sub: "It'll change everytime.",
         accent: "Notes"
     },
     {
-        main: "Still brewing",
-        sub: "완성보다 과정이 재밌습니다.",
+        main: "Anytime, Anywhere",
+        sub: "Feedbacks are welcome!",
         accent: "WIP"
     },
 ];

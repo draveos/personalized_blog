@@ -82,6 +82,34 @@ export default function PostsListPage() {
                         </motion.li>
                     ))}
                 </ul>
+
+                <section className="mt-24 pt-12 border-t border-white/5 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+                    <div className="md:col-span-7">
+                        <p className="text-xs font-mono uppercase tracking-[0.3em] text-white/40 mb-4">
+                            Archive · Tutorials
+                        </p>
+                        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight leading-snug break-keep text-white/90">
+                            체계적인 학습 노트는 티스토리에 쌓고 있습니다.
+                        </h2>
+                        <p className="mt-4 text-white/55 leading-relaxed max-w-prose">
+                            SQL, Python, 데이터 분석, 딥러닝 기초 같은 커리큘럼형 글은 그쪽에서 읽을 수 있어요. 이 블로그는 실험과 회고에 집중합니다.
+                        </p>
+                    </div>
+                    <div className="md:col-span-5 md:justify-self-end">
+                        <a
+                            href="https://slowbutperfect.tistory.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group inline-flex items-center gap-3 rounded-full border border-white/15 px-6 py-4 text-sm font-medium text-white hover:border-primary hover:text-primary transition-colors"
+                        >
+                            <span>공부는 천천히 이해는 완벽히</span>
+                            <ArrowUpRight
+                                className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                                aria-hidden="true"
+                            />
+                        </a>
+                    </div>
+                </section>
             </div>
         </main>
     );

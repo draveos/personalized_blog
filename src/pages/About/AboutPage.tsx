@@ -7,6 +7,11 @@ const meta = [
     { label: "Contact", value: "draveos20@gmail.com" },
 ];
 
+const links = [
+    { label: "GitHub", href: "https://github.com/draveos" },
+    { label: "Tistory Archive", href: "https://slowbutperfect.tistory.com/" },
+];
+
 const stack = [
     "PyTorch",
     "scikit-learn",
@@ -81,6 +86,27 @@ export default function AboutPage() {
                                         className="text-[11px] font-mono uppercase tracking-wider text-white/45 px-2.5 py-1 rounded-full border border-white/10"
                                     >
                                         {s}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <div className="mt-10">
+                            <p className="text-xs font-mono uppercase tracking-[0.2em] text-white/40 mb-4">
+                                Links
+                            </p>
+                            <ul className="space-y-3">
+                                {links.map((link) => (
+                                    <li key={link.href}>
+                                        <a
+                                            href={link.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="group inline-flex items-center gap-2 text-sm text-white/75 hover:text-primary transition-colors"
+                                        >
+                                            <span className="underline underline-offset-4 decoration-white/20 group-hover:decoration-primary">{link.label}</span>
+                                            <span aria-hidden className="text-white/30 group-hover:text-primary transition-colors">↗</span>
+                                        </a>
                                     </li>
                                 ))}
                             </ul>

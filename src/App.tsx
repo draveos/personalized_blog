@@ -13,6 +13,7 @@ import BuilderPage from './pages/Builder/BuilderPage'
 import PostsListPage from './pages/Posts/PostsListPage'
 import PostDetailPage from './pages/Posts/PostDetailPage'
 import {SiteStoreProvider} from "./lib/site-store"
+import { ProtectedRoute } from "./components/ProtectedRoute"
 
 function App() {
     return (
@@ -27,8 +28,22 @@ function App() {
                         <Routes>
                             <Route path="/" element={<MainPage />} />
                             <Route path="/login" element={<LoginPage />} />
-                            <Route path="/dashboard" element={<DashBoardPage />} />
-                            <Route path="/builder/:siteId" element={<BuilderPage />} />
+                            <Route
+                                path="/dashboard"
+                                element={
+                                    <ProtectedRoute>
+                                        <DashBoardPage />
+                                    </ProtectedRoute>
+                                }
+                            />
+                            <Route
+                                path="/builder/:siteId"
+                                element={
+                                    <ProtectedRoute>
+                                        <BuilderPage />
+                                    </ProtectedRoute>
+                                }
+                            />
                             <Route path="/posts" element={<PostsListPage />} />
                             <Route path="/posts/:slug" element={<PostDetailPage />} />
                         </Routes>

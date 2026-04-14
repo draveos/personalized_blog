@@ -4,7 +4,6 @@ import { Navbar } from "../components/NavBar";
 import {LiquidGlassCursor} from "../components/LiquidGlassCursor";
 import InteractiveCard from "../components/InteractiveCard";
 import ShowcaseItem from "../components/ShowcaseItem";
-import CTASection from "../components/CTAsection";
 import { ScrollReveal } from "../components/ScrollReveal";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -16,19 +15,19 @@ import video3 from "../assets/network.mp4"
 
 const heroSlides: Slide[] = [
     {
-        main: "Quiet Code",
-        sub: "a working developer's field notes.",
-        accent: "Journal"
+        main: "Sejin Kim",
+        sub: "실험과 기록. 관람자로 편하게 둘러보세요.",
+        accent: "Hello"
     },
     {
-        main: "Built Slow",
-        sub: "small experiments, patient craft.",
-        accent: "Portfolio"
+        main: "Between sips",
+        sub: "커피와 커피 사이, 쌓이는 노트들.",
+        accent: "Notes"
     },
     {
-        main: "In Between",
-        sub: "fragments from the desk and the commute.",
-        accent: "Essays"
+        main: "Still brewing",
+        sub: "완성보다 과정이 재밌습니다.",
+        accent: "WIP"
     },
 ];
 
@@ -303,8 +302,6 @@ function App() {
                     </div>
                 </section>
 
-                {/* 8. CTA: 강렬한 하단 카드 */}
-                <CTASection />
             </main>
 
             {/* 9. Footer */}

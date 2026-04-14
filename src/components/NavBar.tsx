@@ -42,12 +42,55 @@ export function Navbar() {
             >
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     {/* Logo */}
-                    <Link to="/" className="flex items-center gap-3 group">
+                    <Link to="/" className="flex items-center gap-3 group" aria-label="sejinkim — home">
                         <div className="relative w-10 h-10 flex items-center justify-center overflow-hidden rounded-xl bg-primary transition-transform duration-500 group-hover:rotate-[360deg] shadow-lg">
-                            <span className="text-lg font-black text-primary-foreground italic">S</span>
+                            <svg
+                                viewBox="0 0 24 24"
+                                className="w-6 h-6 text-primary-foreground"
+                                xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden
+                            >
+                                {/* steam */}
+                                <path
+                                    d="M9 4 Q 10 6 9 8"
+                                    stroke="currentColor"
+                                    strokeWidth="1.2"
+                                    strokeLinecap="round"
+                                    fill="none"
+                                    opacity="0.65"
+                                />
+                                <path
+                                    d="M12 3 Q 13 5 12 8"
+                                    stroke="currentColor"
+                                    strokeWidth="1.3"
+                                    strokeLinecap="round"
+                                    fill="none"
+                                />
+                                <path
+                                    d="M15 4 Q 16 6 15 8"
+                                    stroke="currentColor"
+                                    strokeWidth="1.2"
+                                    strokeLinecap="round"
+                                    fill="none"
+                                    opacity="0.65"
+                                />
+                                {/* cup body */}
+                                <path
+                                    d="M4.5 10.5 L 17 10.5 L 16 20 Q 15.8 21 14.8 21 L 6.7 21 Q 5.7 21 5.5 20 Z"
+                                    fill="currentColor"
+                                />
+                                {/* handle */}
+                                <path
+                                    d="M17.3 13 Q 20.3 13 20.3 16 Q 20.3 19 17.3 19"
+                                    stroke="currentColor"
+                                    strokeWidth="1.7"
+                                    strokeLinecap="round"
+                                    fill="none"
+                                />
+                            </svg>
                         </div>
-                        <span className="text-xl font-bold tracking-tighter uppercase text-white transition-colors duration-500">
-                            DWS
+                        <span className="text-lg font-semibold tracking-tight lowercase text-white transition-colors duration-500">
+                            sejinkim
                         </span>
                     </Link>
 

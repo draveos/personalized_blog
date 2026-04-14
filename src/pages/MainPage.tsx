@@ -178,13 +178,16 @@ function App() {
 
                 {/* 6. Showcase: 단계별 작업 흐름 (Ripple Gallery 적용) */}
                 <section id="showcase" className="py-40 px-6 bg-black relative z-10">
-                    <div className="max-w-6xl mx-auto flex flex-col gap-20">
-                        <div className="mb-10 px-4">
+                    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-16">
+                        <div className="md:col-span-5 md:sticky md:top-24 self-start">
                             <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-white">How I work</h2>
-                            <div className="h-1 w-24 bg-primary rounded-full" />
+                            <div className="h-1 w-24 bg-primary rounded-full mb-8" />
+                            <p className="text-white/60 leading-relaxed text-base max-w-sm">
+                                관찰에서 기록까지 — 작은 프로젝트 하나를 매듭짓기 위해 반복하는 세 단계.
+                            </p>
                         </div>
 
-                        <div className="flex flex-col gap-16">
+                        <div className="md:col-span-7 flex flex-col gap-16">
                             {[
                                 {
                                     step: "01",

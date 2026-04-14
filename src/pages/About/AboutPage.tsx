@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 
 const meta = [
     { label: "Role", value: "Product Engineer" },
@@ -78,18 +77,15 @@ export default function AboutPage() {
 
                 <footer className="mt-24 flex items-center justify-between border-t border-white/5 pt-10">
                     <p className="text-white/45 text-sm">
-                        제안·협업은 메일로.
+                        연락 수단은 준비 중.
                     </p>
-                    <a
-                        href="mailto:hello@example.com"
-                        className="group inline-flex items-center gap-2 text-sm font-medium text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/40 focus-visible:ring-offset-4 focus-visible:ring-offset-black rounded-full px-1"
-                    >
-                        Contact
-                        <ArrowUpRight
-                            className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    <span className="inline-flex items-center gap-2 text-sm font-medium text-white/40">
+                        <span
                             aria-hidden="true"
+                            className="inline-block w-1 h-1 rounded-full bg-white/30"
                         />
-                    </a>
+                        Contact — Coming soon
+                    </span>
                 </footer>
             </div>
         </main>

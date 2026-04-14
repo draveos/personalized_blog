@@ -22,7 +22,7 @@ const slides = [
         main: "Organic",
         sub: "nature's raw and pure record.",
         video: video3,
-        accent: "Life-cycle"
+        accent: "Dynamic"
     },
 ];
 

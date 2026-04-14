@@ -8,7 +8,8 @@ import GlassFilters from "./components/GlassFilters";
 
 import MainPage from "./pages/MainPage";
 import LoginPage from "./pages/login/LoginPage";
-import DashBoardPage from "./pages/DashBoard"
+import DashBoardPage from "./pages/Dashboard/DashBoard"
+import BuilderPage from './pages/Builder/BuilderPage'
 import {SiteStoreProvider} from "./lib/site-store"
 
 function App() {
@@ -18,7 +19,6 @@ function App() {
             <SiteStoreProvider>
                 <Router>
                     <div className="min-h-screen bg-black text-foreground overflow-x-hidden font-sans selection:bg-primary selection:text-primary-foreground">
-                        <LiquidGlassCursor />
                         <GlassFilters />
                         <Navbar />
 
@@ -26,6 +26,7 @@ function App() {
                             <Route path="/" element={<MainPage />} />
                             <Route path="/login" element={<LoginPage />} />
                             <Route path="/dashboard" element={<DashBoardPage />} />
+                            <Route path="/builder/:siteId" element={<BuilderPage />} />
                         </Routes>
                     </div>
                 </Router>

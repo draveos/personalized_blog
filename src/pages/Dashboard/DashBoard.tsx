@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../lib/auth-context";
-import { useSiteStore, type Site } from "../lib/site-store";
+import { useAuth } from "../../lib/auth-context";
+import { useSiteStore, type Site } from "../../lib/site-store";
 import { Plus, Globe, Calendar, Trash2, Pencil, ExternalLink, LayoutGrid, Monitor } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 

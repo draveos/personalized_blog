@@ -65,10 +65,10 @@ export const LiquidGlassCursor = () => {
                 className="absolute inset-0 rounded-full"
                 style={{
                     background: "rgba(255, 255, 255, 0.01)",
-                    backdropFilter: "blur(12px) brightness(0.95)",
+                    backdropFilter: "blur(12px) brightness(0.25)",
                     boxShadow: "0 8px 16px 0 rgba(0, 0, 0, 0.1)",
-                    WebkitMaskImage: "radial-gradient(circle, transparent 30%, black 35%)",
-                    maskImage: "radial-gradient(circle, transparent 30%, black 35%)",
+                    WebkitMaskImage: "radial-gradient(circle, transparent 10%, black 35%)",
+                    maskImage: "radial-gradient(circle, transparent 10%, black 35%)",
                     border: "1px solid rgba(255, 255, 255, 0.1)"
                 }}
                 animate={{
@@ -95,7 +95,7 @@ export const LiquidGlassCursor = () => {
                 }}
                 transition={sizeSpringConfig}
             >
-                <div className="absolute inset-0 flex items-center justify-center opacity-40">
+                <div className="absolute inset-0 flex items-center justify-center opacity-20">
                     <div className="w-[1px] h-full bg-gradient-to-b from-transparent via-white to-transparent" />
                     <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-white to-transparent absolute" />
                 </div>

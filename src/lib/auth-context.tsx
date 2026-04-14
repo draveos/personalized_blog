@@ -10,8 +10,8 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 const DEMO_USER = {
-    email: "admin@studio.com",
-    password: "admin123",
+    email: "admin@admin.com",
+    password: "admin",
     name: "Studio Admin",
 }
 

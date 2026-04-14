@@ -5,6 +5,7 @@ import {LiquidGlassCursor} from "../components/LiquidGlassCursor";
 import InteractiveCard from "../components/InteractiveCard";
 import ShowcaseItem from "../components/ShowcaseItem";
 import CTASection from "../components/CTAsection";
+import { motion } from "framer-motion";
 import video1 from "../assets/water.mp4"
 import video2 from "../assets/paint.mp4"
 import video3 from "../assets/network.mp4"
@@ -32,20 +33,64 @@ function App() {
                     <FilmHero />
                 </section>
 
-                {/* 4. Intro Section: 디자인 철학 강조 */}
-                <section className="relative py-32 overflow-hidden bg-black">
-                    <div className="max-w-4xl mx-auto px-6 text-center">
-                        <p className="text-sm font-bold tracking-[0.3em] uppercase text-primary mb-6">
+                {/* 4. Intro Section: Secondary Hero */}
+                <section className="relative h-[80vh] flex items-center justify-center overflow-hidden bg-black">
+                    {/* 배경 영상 레이어 */}
+                    <div className="absolute inset-0 z-0 opacity-30">
+                        <video
+                            src={video2}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-cover grayscale"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
+                    </div>
+
+                    <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+                        {/* 상단 태그 애니메이션 */}
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: false }}
+                            transition={{ duration: 0.8 }}
+                            className="text-sm font-bold tracking-[0.4em] uppercase text-primary mb-8"
+                        >
                             Visual-First Record
-                        </p>
-                        <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9] text-white">
-                            Design your vision,<br />
-                            <span className="text-muted-foreground italic font-serif text-primary font-light">not just a website.</span>
+                        </motion.p>
+
+                        {/* 메인 타이틀: 한 줄씩 스르륵 */}
+                        <h2 className="text-sm md:text-[6rem] font-black tracking-tighter leading-[0.9] text-white flex flex-col items-center">
+                            <motion.span
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: false, margin: "-100px" }}
+                                transition={{ duration: 0.8, delay: 0.1 }}
+                            >
+                                Design your vision
+                            </motion.span>
+                            <motion.span
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: false, margin: "-100px" }}
+                                transition={{ duration: 0.8, delay: 0.3 }}
+                                className="italic font-serif text-primary font-light"
+                            >
+                                not just a website.
+                            </motion.span>
                         </h2>
-                        <p className="mt-10 text-lg text-white md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-medium">
-                            드래그 앤 드롭으로 완성하는 직관적인 에디터.
+
+                        {/* 하단 설명 문구 */}
+                        <motion.p
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: false }}
+                            transition={{ duration: 1.5, delay: 1.5 }}
+                            className="mt-16 text-lg text-white/60 md:text-xl max-w-2xl mx-auto leading-relaxed font-medium"
+                        >
                             당신의 모든 아이디어는 예술적인 기록이 됩니다.
-                        </p>
+                        </motion.p>
                     </div>
                 </section>
 
